@@ -93,13 +93,45 @@ angular.module('deepBlue.controllers', [])
 
 
 // Feeds controller.
-.controller('FeedsCtrl', function($scope, BackendService) {
+.controller('FeedsCtrl', function($scope, BackendService, $ionicPopup) {
 
   // #SIMPLIFIED-IMPLEMENTATION:
   // In this example feeds are loaded from a json file.
   // (using "getFeeds" method in BackendService, see services.js)
   // In your application you can use the same approach or load
   // feeds from a web service.
+
+  // Triggered on a button click, or some other target
+ $scope.showPopup = function() {
+   $scope.data = {}
+
+   // An elaborate, custom popup
+   var myPopup = $ionicPopup.show({
+     template: '<textarea class="text-area" rows="5" ng-model="data.texto"></textarea><input type="file" />',
+     title: 'Criar postagem',
+     subTitle: 'Por favor, preencha o campo a baixo com o texto, caso deseje inserir alguma imagem clique no icone de arquivo',
+     scope: $scope,
+     buttons: [
+       { text: 'Cancelar' },
+       {
+         text: '<b>Publicar</b>',
+         type: 'button-positive',
+         onTap: function(e) {
+           if (!$scope.data.texto) {
+             //don't allow the user to close unless he enters wifi password
+             e.preventDefault();
+           } else {
+             return $scope.data.texto;
+           }
+         }
+       },
+     ]
+   });
+   myPopup.then(function(res) {
+     console.log('Tapped!', res);
+   });
+
+  };
 
   $scope.doRefresh = function(){
       BackendService.getFeeds()
