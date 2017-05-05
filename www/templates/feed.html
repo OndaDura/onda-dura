@@ -1,4 +1,10 @@
 <ion-view view-title="Onda Dura" hide-back-button="true">
+  <ion-nav-buttons side="right">
+    <span ui-sref="app.cart" >
+      <button class="button button-clear icon ion-ios-world-outline white-color"></button>
+      <span ng-show="cart.products.length" class="cart-badge ng-hide">{{cart.products.length}}</span>
+    </span>
+  </ion-nav-buttons>
   <ion-content>
     <!-- here we use a ion-refresher -->
     <!--

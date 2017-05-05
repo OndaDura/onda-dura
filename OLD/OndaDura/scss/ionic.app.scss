@@ -1,0 +1,23 @@
+$light: #ffffff;
+$link-color: $light;
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../www/lib/ionic/scss";
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+	width: 33%;
+}
+
+.msgFriend {
+	background-color: green;
+	border-radius: 0px 20px 20px 0px;
+}
+
+.yourMsg {
+	background-color: #7385E6;
+	border-radius: 20px 0px 0px 20px;
+}
+
