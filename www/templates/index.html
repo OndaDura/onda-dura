@@ -1,0 +1,45 @@
+<!--
+  #TIP: in this case we hide the navbar provided by navigation system.
+-->
+<ion-view hide-nav-bar="true" disable-parent="true">
+  <video class="video_home" poster="img/polina.jpg" id="bgvid" playsinline autoplay muted loop>
+    <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+    <source src="./video/polina.webm" type="video/webm">
+    <source src="./video/polina.mp4" type="video/mp4">
+  </video>
+  <!--
+    #IMPLEMENTATION-DETAIL
+    We are using custom classes in "scss/scaffolding.scss"
+  -->
+  <ion-content class="padding full-height" scroll="false">
+    <div class="text-center logo">
+      <img src="img/logo.png"/>
+    </div>
+
+    <h3 class="white-color text-center sans-pro-light">
+      Tão Igreja que nem parece uma
+    </h3>
+
+    <!--
+      #IMPLEMENTATION-DETAIL:
+      we are wrapping the login button in an ionic grid in order
+      to keep it centered and quite large
+    -->
+
+    <div class="row">
+        <div class="col col-20"></div>
+        <div class="col">
+          <button class="button button-large button-positive button-block" ui-sref="app.login">ENTRAR</button>
+        </div>
+        <div class="col col-20"></div>
+    </div>
+  </ion-content>
+
+  <!--
+   We put a link to signup screen in footer bar.
+  -->
+  <ion-footer-bar ui-sref="app.signup" class="bar bar-positive bar-deepblue-bordertop pointer">
+    <h1 class="title sans-pro-light">Cadastre-se</h1>
+  </ion-footer-bar>
+
+</ion-view>

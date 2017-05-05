@@ -1,0 +1,41 @@
+<!--
+  #TIP: in this case we hide the navbar provided by navigation system.
+-->
+<ion-view hide-nav-bar="true">
+
+  <!-- in our custom header bar we give a link to start screen -->
+  <ion-header-bar class="bar bar-deepblue bar-deepblue-borderbottom">
+    <button ui-sref="index" class="button button-clear button-deepblue-white"><i class="white-color ion-arrow-left-c"></i></button>
+    <h2 class="title">Entrar</h2>
+  </ion-header-bar>
+
+  <ion-content class="has-header has-footer padding full-height text-center">
+    <form name="form_login">
+      <h3 class="sans-pro-light">Entre com seus dados</h3>
+
+      <div class="erros" ng-if="form_login.$error && form_login.$submitted">
+        <h4 class="vermelho" ng-if="form_login.email.$error.email">O campo e-mail está inválido</h4>
+        <h4 class="vermelho" ng-if="form_login.$error.required">Existem campos obrigatórios que não foram preenchidos</h4>
+      </div>
+
+      <label class="item item-input">
+          <input type="email" placeholder="E-mail" name="email" ng-model="email" required />
+      </label>
+      <label class="item item-input">
+          <input type="password" placeholder="Senha" name="senha" ng-model="senha" required />
+      </label>
+      <!--
+        #SIMPLIFIED-IMPLEMENTATION:
+        login just sets an user! (see controllers.js for more)
+      -->
+      <button class="button button-block button-positive" type="submit" ng-click="login(form_login);">Entrar</button>
+    </form>
+
+  </ion-content>
+
+  <!-- we put the forgot password link in the footer -->
+  <ion-footer-bar class="bar bar-deepblue bar-deepblue-bordertop pointer" ui-sref="app.forgot">
+    <h1 class="title sans-pro-light">Enqueceu a senha?</h1>
+  </ion-footer-bar>
+
+</ion-view>
