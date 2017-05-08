@@ -5,8 +5,8 @@
   All rights reserved
 
   written by Mauro Bianchi
-  bianchimro@gmail.com  
-  
+  bianchimro@gmail.com
+
   file: services.js
   description: this file contains all services of the DeepBlue app.
 
@@ -15,7 +15,7 @@
 
 angular.module('deepBlue.services', [])
 
-// CartService is an example of service using localStorage 
+// CartService is an example of service using localStorage
 // to persist items of the cart.
 .factory('CartService', [function () {
 
@@ -57,10 +57,10 @@ angular.module('deepBlue.services', [])
 // #SIMPLIFIED-IMPLEMENTATION
 // This is an example if backend service using $http to get
 // data from files.
-// In this example, files are shipped with the application, so 
+// In this example, files are shipped with the application, so
 // they are static and cannot change unless you deploy an application update
 // Other possible implementations (not covered by this kit) include:
-// - loading dynamically json files from the web 
+// - loading dynamically json files from the web
 // - calling a web service to fetch data dinamically
 // in those cases be sure to handle url whitelisting (specially in android)
 // (https://cordova.apache.org/docs/en/5.0.0/guide_appdev_whitelist_index.md.html)
@@ -77,5 +77,8 @@ angular.module('deepBlue.services', [])
     return $http.get('sampledata/products.json');
   }
 
+  svc.getComments = function(){
+    return $http.get('sampledata/comments.json');
+  }
   return svc;
 }])
