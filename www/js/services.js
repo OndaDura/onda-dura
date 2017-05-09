@@ -77,5 +77,8 @@ angular.module('ondaDura.services', [])
     return $http.get('sampledata/products.json');
   }
 
+  svc.getComments = function(){
+    return $http.get('sampledata/comments.json');
+  }
   return svc;
 }])

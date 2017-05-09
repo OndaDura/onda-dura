@@ -1,10 +1,4 @@
 <ion-view view-title="Onda Dura" hide-back-button="true">
-  <ion-nav-buttons side="right">
-    <span ui-sref="app.cart" >
-      <button class="button button-clear icon ion-ios-world-outline white-color"></button>
-      <span ng-show="cart.products.length" class="cart-badge ng-hide">{{cart.products.length}}</span>
-    </span>
-  </ion-nav-buttons>
   <div class="botao-fixo-inferior">
     <span class="button button-clear ion-plus-circled white-color botao-criar-post" ng-click="showPopup()"></span>
   </div>
@@ -58,18 +52,32 @@
       </div>
       <div class="item">
         <p>
-          <a href="#" class="subdued">1 Curtida</a>
-          <a href="#" class="subdued">5 Comentarios</a>
+          <a href="#" class="subdued" ng-click="modalLikes.show()">{{feed.likes}} Curtidas</a>
+          <a href="#" class="subdued" ng-click="comment(feed);">{{feed.comments}} Comentarios</a>
         </p>
       </div>
-
+      <div class="card" ng-class="{invisivel : !feed.visivel}">
+        <a class="item item-avatar" href="#" ng-repeat="comment in comments">
+          <img src="{{comment.image}}">
+          <h2>{{comment.name}}</h2>
+          <p>{{comment.description}}</p>
+        </a>
+        <form name="form_comments">
+          <label class="item item-input">
+            <input type="text" placeholder="Digite aqui seu comentario" name="inputComment" ng-model="inputComment" required/>
+          </label>
+          <label class="item">
+            <button class="button button-block button-positive" type="button" ng-click="saveComment(inputComment); inputComment = '';">Enviar</button>
+          </label>
+        </form>
+      </div>
       <!-- comment and like buttons do nothing in this example -->
       <div class="item tabs tabs-ondaDura tabs-icon-left">
-        <a class="tab-item" href="#">
+        <a class="tab-item" ng-class="{amarelo : feed.youLike}" href="#" ng-click="like(feed);">
           <i class="icon ion-thumbsup"></i>
           Curtir
         </a>
-        <a class="tab-item" href="#">
+        <a class="tab-item" href="#" ng-click="comment(feed);">
           <i class="icon ion-chatbox"></i>
           Comentar
         </a>

@@ -127,7 +127,7 @@ angular.module('ondaDura.controllers', [])
 
 
 // Feeds controller.
-.controller('FeedsCtrl', function($scope, BackendService, $ionicPopup) {
+.controller('FeedsCtrl', function($scope, BackendService, $ionicPopup, $ionicModal) {
 
   // #SIMPLIFIED-IMPLEMENTATION:
   // In this example feeds are loaded from a json file.
@@ -167,16 +167,50 @@ angular.module('ondaDura.controllers', [])
 
   };
 
-  $scope.doRefresh = function(){
-      BackendService.getFeeds()
-      .success(function(newItems) {
-        $scope.feeds = newItems;
-      })
-      .finally(function() {
-        // Stop the ion-refresher from spinning
-        $scope.$broadcast('scroll.refreshComplete');
-      });
+  $scope.doRefresh = function() {
+    BackendService.getFeeds()
+    .success(function(newItems) {
+      $scope.feeds = newItems;
+    })
+    .finally(function() {
+      // Stop the ion-refresher from spinning
+      $scope.$broadcast('scroll.refreshComplete');
+    });
   };
+
+  $scope.like = function(item) {
+    if (!item.youLike) {
+      item.youLike = true;
+      item.likes++;
+    } else {
+      item.youLike = false;
+      item.likes--;
+    }
+  }
+
+  $scope.comment = function(item) {
+    if (!item.visivel) {
+      BackendService.getComments()
+      .success(function(newItems) {
+        $scope.comments = newItems;
+        item.visivel = true;
+      })
+    } else {
+      item.visivel = false;
+    }
+  }
+
+  $scope.saveComment = function(inputComment) {
+    if (inputComment) {
+      $scope.comments.push({id: 4, name: "Pessoa logada", image: "./img/Image681.jpg", description: inputComment});
+    }
+  }
+
+  $ionicModal.fromTemplateUrl('modals/likes.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modalLikes = modal;
+  });
 
   // Triggering the first refresh
   $scope.doRefresh();

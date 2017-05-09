@@ -20,6 +20,11 @@
         <button class="white-color button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
       </ion-nav-buttons>
+      <ion-nav-buttons side="right" >
+        <button class="button button-clear icon ion-ios-world-outline white-color" menu-toggle="right">
+        </button>
+        <span ng-show="cart.products.length" class="cart-badge ng-hide">{{cart.products.length}}</span>
+      </ion-nav-buttons>
     </ion-nav-bar>
 
     <ion-nav-view name="menuContent" class="slide-left-right"></ion-nav-view>
@@ -51,9 +56,17 @@
           Publicações
         </ion-item>
         <ion-item menu-close href="#/app/shop">
-          Shop
+          Eventos
         </ion-item>
-
+        <ion-item menu-close href="#/app/shop">
+          Conversas
+        </ion-item>
+        <ion-item menu-close href="#/app/shop">
+          Roteiros
+        </ion-item>
+        <ion-item menu-close href="#/app/shop">
+          Biblia
+        </ion-item>
       </ion-list>
     </ion-content>
 
@@ -65,6 +78,61 @@
     <ion-footer-bar class="bar-positive">
       <button class="button button-clear white-color" ng-click="logout()" menu-close>Sair</button>
     </ion-footer-bar>
+
+  </ion-side-menu>
+  <ion-side-menu side="right">
+    <ion-header-bar class="bar-deepblue-reverse bar-deepblue-borderbottom">
+    </ion-header-bar>
+
+    <ion-content>
+      <div class="list">
+        <a class="item item-avatar" href="#">
+          <img src="./img/maxresdefault.jpg">
+          <h2>Fulano</h2>
+          <p>Curtiu sua foto</p>
+        </a>
+        <a class="item item-avatar" href="#">
+          <img src="./img/Image681.jpg">
+          <h2>Ciclano</h2>
+          <p>Comentou sua foto</p>
+        </a>
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-email"></i>
+          <h2>Metanoia</h2>
+          <p>Você tem esse evento na semana</p>
+        </a>
+        <a class="item item-avatar" href="#">
+          <img src="./img/maxresdefault.jpg">
+          <h2>Fulano</h2>
+          <p>Curtiu sua foto</p>
+        </a>
+        <a class="item item-avatar" href="#">
+          <img src="./img/Image681.jpg">
+          <h2>Ciclano</h2>
+          <p>Comentou sua foto</p>
+        </a>
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-email"></i>
+          <h2>Metanoia</h2>
+          <p>Você tem esse evento na semana</p>
+        </a>
+        <a class="item item-avatar" href="#">
+          <img src="./img/maxresdefault.jpg">
+          <h2>Fulano</h2>
+          <p>Curtiu sua foto</p>
+        </a>
+        <a class="item item-avatar" href="#">
+          <img src="./img/Image681.jpg">
+          <h2>Ciclano</h2>
+          <p>Comentou sua foto</p>
+        </a>
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-email"></i>
+          <h2>Metanoia</h2>
+          <p>Você tem esse evento na semana</p>
+        </a>
+      </div>
+    </ion-content>
 
   </ion-side-menu>
 </ion-side-menus>
