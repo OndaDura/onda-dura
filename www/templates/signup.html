@@ -3,42 +3,55 @@
 -->
 <ion-view hide-nav-bar="true">
 
-  <ion-header-bar class="bar bar-deepblue bar-deepblue-borderbottom">
-    <button ui-sref="index" class="button button-clear button-deepblue-white"><i class="white-color ion-arrow-left-c"></i></button>
-    <h2 class="title">Signup</h2>
+  <ion-header-bar class="bar bar-ondaDura bar-ondaDura-borderbottom">
+    <button ui-sref="index" class="button button-clear button-ondaDura-white"><i class="white-color ion-arrow-left-c"></i></button>
+    <h2 class="title">É uma honra ter você aqui!</h2>
   </ion-header-bar>
 
   <ion-content class="has-header has-footer padding full-height text-center">
 
-    <div style="padding-top:50px;">
-    <h3 class="sans-pro-light">Please provide this information</h3>
+    <h3 class="sans-pro-light">Por favor, preencha com as suas informações os campos abaixo</h3>
+    <form name="form_create_account">
 
-    <label class="item item-input">
-        <input type="text" placeholder="Your name">
-    </label>
-    <label class="item item-input">
-        <input type="text" placeholder="email">
-    </label>
-    <label class="item item-input">
-        <input type="password" placeholder="password">
-    </label>
-    <label class="item item-input">
-        <input type="password" placeholder="repeat password">
-    </label>
+      <div class="erros" ng-if="form_create_account.$error && form_create_account.$submitted">
+        <h4 class="vermelho" ng-if="form_create_account.email.$error.email">O campo e-mail está inválido</h4>
+        <h4 class="vermelho" ng-if="form_create_account.$error.required">Existem campos obrigatórios que não foram preenchidos</h4>
+        <h4 class="vermelho" ng-if="form_create_account.senha.$modelValue != form_create_account.resenha.$modelValue">O campo senha e o campo confirmação de senha não estão iguais</h4>
+      </div>
 
-    <!--
-      #NOT-IMPLEMENTED:
-      the button does nothing, implementation is up to you!
-    -->
-    <button class="button button-block button-energized" ui-sref="app.account">SIGNUP</button>
+      <label class="item item-input">
+        <input type="text" name="nome" ng-model="nome" placeholder="Nome completo" required />
+      </label>
+      <label class="item item-input">
+        <input type="email" name="email" ng-model="email" placeholder="E-mail" required />
+      </label>
+      <label class="item item-input">
+        <input type="password" name="senha" ng-model="senha" placeholder="Senha" required />
+      </label>
+      <label class="item item-input">
+        <input type="password" name="resenha" ng-model="resenha" placeholder="Repita sua senha" required />
+      </label>
+      <label class="item item-input">
+        <input type="date" name="nascimento" ng-model="nascimento" placeholder="Data de nascimento" required />
+      </label>
+      <label class="item item-select" id="register-select1" name="implantation">
+        <span class="input-label" aria-label="Implantação" id="_label-14">Implantação</span>
+        <select name="implantacao" ng-model="implantacao"  required />
+          <option value="Joinville">Joinville</option>
+          <option value="Jaraguá do Sul">Jaraguá do Sul</option>
+          <option value="Blumenau">Blumenau</option>
+          <option value="Itajai">Itajai</option>
+        </select>
+      </label>
 
-    </div>
+      <button class="button button-block button-energized" type="submit" ng-click="signup(form_create_account);">Aceito os termos de uso e quero cadastrar</button>
+    </form>
 
 
   </ion-content>
 
   <!-- we provide a link back to login in footer bar -->
-  <ion-footer-bar class="bar bar-deepblue bar-deepblue-bordertop pointer" ui-sref="app.login">
+  <ion-footer-bar class="bar bar-ondaDura bar-ondaDura-bordertop pointer" ui-sref="app.login">
     <h1 class="title sans-pro-light">Login</h1>
   </ion-footer-bar>
 

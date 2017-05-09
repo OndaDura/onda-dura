@@ -1,6 +1,6 @@
 /*
 
-  DeepBlue Starter Kit - version 1.1
+  ondaDura Starter Kit - version 1.1
   Copyright (c) 2015 INMAGIK SRL - www.inmagik.com
   All rights reserved
 
@@ -8,13 +8,13 @@
   bianchimro@gmail.com
 
   file: controllers.js
-  description: this file contains all controllers of the DeepBlue app.
+  description: this file contains all controllers of the ondaDura app.
 
 */
 
 
 //controllers are packed into a module
-angular.module('deepBlue.controllers', [])
+angular.module('ondaDura.controllers', [])
 
 //top view controller
 .controller('AppCtrl', function($scope, $rootScope, $state) {
@@ -64,8 +64,29 @@ angular.module('deepBlue.controllers', [])
 
 })
 
+.controller('Signup', function ($scope, $state, $rootScope, $ionicPopup) {
 
-.controller('LoginCtrl', function ($scope, $state, $rootScope) {
+  // #SIMPLIFIED-IMPLEMENTATION:
+  // This login function is just an example.
+  // A real one should call a service that checks the auth against some
+  // web service
+
+  $scope.signup = function (form_create_account) {
+    form_create_account.$submitted = true;
+    if(!Object.keys(form_create_account.$error).length) {
+      var alertPopup = $ionicPopup.alert({
+        title: 'Sucesso!',
+        template: 'Sua conta foi criada com sucesso'
+      });
+      alertPopup.then(function(res) {
+        $state.go('app.login');
+      });
+    }
+  }
+
+})
+
+.controller('LoginCtrl', function ($scope, $state, $rootScope, $ionicPopup) {
 
   // #SIMPLIFIED-IMPLEMENTATION:
   // This login function is just an example.
@@ -89,6 +110,19 @@ angular.module('deepBlue.controllers', [])
     }
   };
 
+  $scope.forgot = function (form_forgot) {
+    form_forgot.$submitted = true;
+    if(form_forgot.email.$modelValue != "" && (!Object.keys(form_forgot.$error).length)) {
+      var alertPopup = $ionicPopup.alert({
+        title: 'Sucesso!',
+        template: 'Caso exista esse endereço de e-mail em nosso sistema, será enviado uma mensagem em no máximo cinco minutos, com as orientações para recuperação da senha'
+      });
+      alertPopup.then(function(res) {
+        $state.go('app.login');
+      });
+    }
+  }
+
 })
 
 
@@ -109,7 +143,7 @@ angular.module('deepBlue.controllers', [])
    var myPopup = $ionicPopup.show({
      template: '<textarea class="text-area" rows="5" ng-model="data.texto"></textarea><input type="file" />',
      title: 'Criar postagem',
-     subTitle: 'Por favor, preencha o campo a baixo com o texto, caso deseje inserir alguma imagem clique no icone de arquivo',
+     subTitle: 'Por favor, preencha o campo a baixo com o texto que deseja postar, caso queira inserir alguma imagem clique no icone de arquivo',
      scope: $scope,
      buttons: [
        { text: 'Cancelar' },

@@ -1,21 +1,21 @@
 <ion-view view-title="Account" hide-back-button="true">
-  <!-- 
+  <!--
     #IMPLEMENTATION-DETAIL;
     all view content is wrapped in a form in order to be able to leverage
     angular 'form' directive in all the view.
     #TIP: The form must have a "name" property set for using angular validation.
   -->
   <form name="accountForm">
-  
+
   <!-- main content -->
   <ion-content>
-    
-    <div class=" text-center ui-gradient-deepblue padding">
+
+    <div class=" text-center ui-gradient-ondaDura padding">
         <img class="avatar-account" ng-src="{{user.avatar}}">
     </div>
-    
+
     <!-- form fields -->
-    <!-- 
+    <!--
       #IMPLEMENTATION-DETAIL:
       ng-readonly is set on each field and bound to $scope.readonly
     -->
@@ -66,7 +66,7 @@
     -->
     <button ng-show="!readonly" class="button button-energized" ng-click="saveEdit()" ng-disabled="accountForm.$invalid">Save changes</button>
   </ion-footer-bar>
-  
+
   </form>
 
 </ion-view>

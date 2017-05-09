@@ -2,32 +2,28 @@
   #TIP: in this case we hide the navbar provided by navigation system.
 -->
 <ion-view hide-nav-bar="true">
-  <ion-header-bar class="bar bar-deepblue bar-deepblue-borderbottom">
+  <ion-header-bar class="bar bar-ondaDura bar-ondaDura-borderbottom">
   <h2 class="title">Recuperar senha</h2>
   </ion-header-bar>
 
   <ion-content class="has-header has-footer padding full-height text-center">
     <div style="padding-top:50px;">
       <h3 class="sans-pro-light">Favor inserir seu e-mail para recuperar sua senha</h3>
+      <form name="form_forgot">
+        <div class="erros" ng-if="form_forgot.$error && form_forgot.$submitted">
+          <h4 class="vermelho" ng-if="form_forgot.email.$error.email">O campo e-mail está inválido</h4>
+          <h4 class="vermelho" ng-if="form_forgot.$error.required">Existem campos obrigatórios que não foram preenchidos</h4>
+        </div>
+        <label class="item item-input">
+          <input type="email" placeholder="E-mail" ng-model="email" name="email" required autocomplete="off">
+        </label>
 
-      <label class="item item-input">
-        <input type="text" placeholder="E-mail">
-      </label>
-
-      <!--
-       #NOT-IMPLEMENTED:
-       the button does nothing, implementation is up to you!
-      -->
-      <button class="button button-block button-energized">Recuperar senha</button>
-
+        <button class="button button-block button-energized" type="submit" ng-click="forgot(form_forgot);">Recuperar senha</button>
+      </form>
     </div>
   </ion-content>
 
-  <!--
-    #IMPLEMENTATION-DETAIL:
-    we put a link to login in the footer.
-  -->
-  <ion-footer-bar class="bar bar-deepblue bar-deepblue-bordertop pointer" ui-sref="app.login">
+  <ion-footer-bar class="bar bar-ondaDura bar-ondaDura-bordertop pointer" ui-sref="app.login">
     <h1 class="title sans-pro-light">Voltar para o login</h1>
   </ion-footer-bar>
 

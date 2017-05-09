@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 
-  DeepBlue Starter Kit
+  ondaDura Starter Kit
   version 1.1
   Copyright (c) 2015 INMAGIK SRL - www.inmagik.com
   All rights reserved
@@ -7702,7 +7702,7 @@ a.button {
 
 /*
 
-    DeepBlue Starter Kit - version 1.1
+    ondaDura Starter Kit - version 1.1
     Copyright (c) 2015 INMAGIK SRL - www.inmagik.com
     All rights reserved
 
@@ -7714,7 +7714,7 @@ a.button {
 */
 /*
 
-    DeepBlue Starter Kit - version 1.1
+    ondaDura Starter Kit - version 1.1
     Copyright (c) 2015 INMAGIK SRL - www.inmagik.com
     All rights reserved
 
@@ -7777,7 +7777,7 @@ a.button {
   font-family: 'Source Sans Pro', sans-serif !important;
   font-weight: 300; }
 
-.ui-gradient-deepblue {
+.ui-gradient-ondaDura {
   background: -webkit-linear-gradient(90deg, #ffc900 10%, #ffc900 90%);
   background: -moz-linear-gradient(90deg, #ffc900 10%, #ffc900 90%);
   background: -ms-linear-gradient(90deg, #ffc900 10%, #ffc900 90%);
@@ -7798,7 +7798,7 @@ a.button {
 
 /*
 
-    DeepBlue Starter Kit - version 1.1
+    ondaDura Starter Kit - version 1.1
     Copyright (c) 2015 INMAGIK SRL - www.inmagik.com
     All rights reserved
 
@@ -7808,50 +7808,50 @@ a.button {
     file: themed.scss
     description: theme classes
 */
-.deepblue-theme {
+.ondaDura-theme {
   color: #ffffff; }
-  .deepblue-theme h1, .deepblue-theme h2, .deepblue-theme h3, .deepblue-theme h4, .deepblue-theme h5, .deepblue-theme h6, .deepblue-theme .h1, .deepblue-theme .h2, .deepblue-theme .h3, .deepblue-theme .h4, .deepblue-theme .h5, .deepblue-theme .h6 {
+  .ondaDura-theme h1, .ondaDura-theme h2, .ondaDura-theme h3, .ondaDura-theme h4, .ondaDura-theme h5, .ondaDura-theme h6, .ondaDura-theme .h1, .ondaDura-theme .h2, .ondaDura-theme .h3, .ondaDura-theme .h4, .ondaDura-theme .h5, .ondaDura-theme .h6 {
     color: #ffffff; }
-  .deepblue-theme .pane, .deepblue-theme .view {
+  .ondaDura-theme .pane, .ondaDura-theme .view {
     background-color: #333; }
-  .deepblue-theme .menu {
+  .ondaDura-theme .menu {
     background-color: #333;
     border-color: rgba(238, 238, 238, 0.8);
     border-right: solid white 1px; }
-    .deepblue-theme .menu .item, .deepblue-theme .menu .item-complex .item-content {
+    .ondaDura-theme .menu .item, .ondaDura-theme .menu .item-complex .item-content {
       background-color: #333;
       color: #ffffff;
       border-color: rgba(238, 238, 238, 0.8); }
-      .deepblue-theme .menu .item *, .deepblue-theme .menu .item-complex .item-content * {
+      .ondaDura-theme .menu .item *, .ondaDura-theme .menu .item-complex .item-content * {
         color: #eee; }
-    .deepblue-theme .menu .item-menu-avatar .item-content {
+    .ondaDura-theme .menu .item-menu-avatar .item-content {
       padding: 5px; }
-    .deepblue-theme .menu .menu-positive .item-content {
+    .ondaDura-theme .menu .menu-positive .item-content {
       background: #ffc900 !important; }
-    .deepblue-theme .menu .item:first-child, .deepblue-theme .menu .item-complex:first-child .item-content:first-child {
+    .ondaDura-theme .menu .item:first-child, .ondaDura-theme .menu .item-complex:first-child .item-content:first-child {
       border-top: none; }
-  .deepblue-theme .bar.bar-deepblue {
+  .ondaDura-theme .bar.bar-ondaDura {
     background-color: #333; }
-  .deepblue-theme .bar.bar-deepblue-reverse {
+  .ondaDura-theme .bar.bar-ondaDura-reverse {
     background-color: #333; }
-  .deepblue-theme .bar.bar-deepblue-bordertop {
+  .ondaDura-theme .bar.bar-ondaDura-bordertop {
     border-top: solid rgba(238, 238, 238, 0.8) 1px; }
-  .deepblue-theme .bar.bar-deepblue-borderbottom {
+  .ondaDura-theme .bar.bar-ondaDura-borderbottom {
     border-bottom: solid rgba(238, 238, 238, 0.8) 1px; }
-  .deepblue-theme .button.button-outline.button-deepblue-white {
+  .ondaDura-theme .button.button-outline.button-ondaDura-white {
     color: #ffffff;
     border-color: #ffffff; }
-  .deepblue-theme .tabs-deepblue > .tabs, .deepblue-theme .tabs.tabs-deepblue {
+  .ondaDura-theme .tabs-ondaDura > .tabs, .ondaDura-theme .tabs.tabs-ondaDura {
     background-color: #333;
     color: #ffffff; }
-  .deepblue-theme .item h1, .deepblue-theme .item h2, .deepblue-theme .item h3, .deepblue-theme .item h4, .deepblue-theme .item h5, .deepblue-theme .item h6, .deepblue-theme .item .h1, .deepblue-theme .item .h2, .deepblue-theme .item .h3, .deepblue-theme .item .h4, .deepblue-theme .item .h5, .deepblue-theme .item .h6, .deepblue-theme .item-complex .item-content h1, .deepblue-theme .item-complex .item-content h2, .deepblue-theme .item-complex .item-content h3, .deepblue-theme .item-complex .item-content h4, .deepblue-theme .item-complex .item-content h5, .deepblue-theme .item-complex .item-content h6, .deepblue-theme .item-complex .item-content .h1, .deepblue-theme .item-complex .item-content .h2, .deepblue-theme .item-complex .item-content .h3, .deepblue-theme .item-complex .item-content .h4, .deepblue-theme .item-complex .item-content .h5, .deepblue-theme .item-complex .item-content .h6 {
+  .ondaDura-theme .item h1, .ondaDura-theme .item h2, .ondaDura-theme .item h3, .ondaDura-theme .item h4, .ondaDura-theme .item h5, .ondaDura-theme .item h6, .ondaDura-theme .item .h1, .ondaDura-theme .item .h2, .ondaDura-theme .item .h3, .ondaDura-theme .item .h4, .ondaDura-theme .item .h5, .ondaDura-theme .item .h6, .ondaDura-theme .item-complex .item-content h1, .ondaDura-theme .item-complex .item-content h2, .ondaDura-theme .item-complex .item-content h3, .ondaDura-theme .item-complex .item-content h4, .ondaDura-theme .item-complex .item-content h5, .ondaDura-theme .item-complex .item-content h6, .ondaDura-theme .item-complex .item-content .h1, .ondaDura-theme .item-complex .item-content .h2, .ondaDura-theme .item-complex .item-content .h3, .ondaDura-theme .item-complex .item-content .h4, .ondaDura-theme .item-complex .item-content .h5, .ondaDura-theme .item-complex .item-content .h6 {
     color: #444; }
-  .deepblue-theme .scroll-refresher .ionic-refresher-content {
+  .ondaDura-theme .scroll-refresher .ionic-refresher-content {
     color: #ffffff; }
-  .deepblue-theme .scroll-refresher {
+  .ondaDura-theme .scroll-refresher {
     color: #ffffff;
     background: #ffc900; }
-  .deepblue-theme .scroll-refresher .ionic-refresher-content .spinner {
+  .ondaDura-theme .scroll-refresher .ionic-refresher-content .spinner {
     stroke: #ffffff;
     fill: #ffffff; }
 

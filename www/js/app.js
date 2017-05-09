@@ -1,6 +1,6 @@
 /*
 
-  DeepBlue Starter Kit - version 1.1
+  ondaDura Starter Kit - version 1.1
   Copyright (c) 2015 INMAGIK SRL - www.inmagik.com
   All rights reserved
 
@@ -11,7 +11,7 @@
 
 */
 
-angular.module('deepBlue', ['ionic', 'deepBlue.controllers', 'deepBlue.services'])
+angular.module('ondaDura', ['ionic', 'ondaDura.controllers', 'ondaDura.services'])
 
 .run(function($ionicPlatform, $rootScope, $timeout, $state) {
   $ionicPlatform.ready(function() {
@@ -88,9 +88,11 @@ angular.module('deepBlue', ['ionic', 'deepBlue.controllers', 'deepBlue.services'
 
   .state('app.forgot', {
     url: '/forgot',
+    cache : false,
     views: {
       'menuContent': {
-        templateUrl: 'templates/forgot.html'
+        templateUrl: 'templates/forgot.html',
+        controller : 'LoginCtrl'
       }
     }
   })
@@ -99,7 +101,8 @@ angular.module('deepBlue', ['ionic', 'deepBlue.controllers', 'deepBlue.services'
     url: '/signup',
     views: {
       'menuContent': {
-        templateUrl: 'templates/signup.html'
+        templateUrl: 'templates/signup.html',
+        controller: 'Signup'
       }
     }
   })
