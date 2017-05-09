@@ -17,7 +17,7 @@
 angular.module('ondaDura.controllers', [])
 
 //top view controller
-.controller('AppCtrl', function($scope, $rootScope, $state) {
+.controller('AppCtrl', function($scope, $rootScope, $state, BackendService) {
 
   // #SIMPLIFIED-IMPLEMENTATION:
   // Simplified handling and logout function.
@@ -29,6 +29,16 @@ angular.module('ondaDura.controllers', [])
     $rootScope.user = {};
     $state.go('index')
   };
+
+  $scope.getNotifications = function() {
+    BackendService.getNotifications()
+    .success(function(newItems) {
+      $scope.notifications = newItems;
+    });
+  };
+
+
+  $scope.getNotifications();
 
 })
 
@@ -82,7 +92,7 @@ angular.module('ondaDura.controllers', [])
         $state.go('app.login');
       });
     }
-  }
+  };
 
 })
 
@@ -118,10 +128,47 @@ angular.module('ondaDura.controllers', [])
         template: 'Caso exista esse endereço de e-mail em nosso sistema, será enviado uma mensagem em no máximo cinco minutos, com as orientações para recuperação da senha'
       });
       alertPopup.then(function(res) {
-        $state.go('app.login');
+        $state.go('app.forgot-code');
       });
     }
-  }
+  };
+
+  $scope.forgotCode = function (form_forgot_code) {
+    form_forgot_code.$submitted = true;
+    if(form_forgot_code.code.$modelValue != "" && (!Object.keys(form_forgot_code.$error).length)) {
+      if(form_forgot_code.code.$modelValue != 123) {//Depois tem que mudar para uma requisição
+        $scope.codeValid = true;
+        $state.go('app.reset-password');
+      } else {
+        $scope.codeValid = false;
+      }
+    }
+  };
+
+  $scope.resendCode = function () {
+    var alertPopup = $ionicPopup.alert({
+      title: 'Reenviamos um novo código para o seu e-mail!',
+      template: 'Em no máximo 5 minutos você irá receber o novo código para ser preenchido no campo acima'
+    });
+  };
+
+  $scope.resetPassword = function (form_reset_password) {
+    form_reset_password.$submitted = true;
+    if(form_reset_password.password.$modelValue != "" && (!Object.keys(form_reset_password.$error).length)) {
+      if(form_reset_password.password.$modelValue == form_reset_password.repeatPassword.$modelValue) {//Depois tem que mudar para uma requisição
+        $scope.passwordValid = true;
+        var alertPopup = $ionicPopup.alert({
+          title: 'Sucesso!',
+          template: 'Sua nova senha foi cadastrada e já pode ser utilizada'
+        });
+        alertPopup.then(function(res) {
+          $state.go('app.login');
+        });
+      } else {
+        $scope.passwordValid = false;
+      }
+    }
+  };
 
 })
 
@@ -161,10 +208,6 @@ angular.module('ondaDura.controllers', [])
        },
      ]
    });
-   myPopup.then(function(res) {
-     console.log('Tapped!', res);
-   });
-
   };
 
   $scope.doRefresh = function() {
@@ -188,13 +231,20 @@ angular.module('ondaDura.controllers', [])
     }
   }
 
+  $scope.viewLikes = function(idUser) {
+    BackendService.getLikes(idUser)
+    .success(function(newItems) {
+      $scope.likes = newItems;
+    });
+  }
+
   $scope.comment = function(item) {
     if (!item.visivel) {
       BackendService.getComments()
       .success(function(newItems) {
         $scope.comments = newItems;
         item.visivel = true;
-      })
+      });
     } else {
       item.visivel = false;
     }
@@ -214,7 +264,28 @@ angular.module('ondaDura.controllers', [])
 
   // Triggering the first refresh
   $scope.doRefresh();
+})
 
+// Feeds controller.
+.controller('CounterCtrl', function($scope) {
+  var myCounter = new flipCounter('myCounter', {value: 0, inc: 1, auto: false});
+
+  $scope.addCount = function(qtd) {
+    myCounter.add(qtd);
+    navigator.vibrate(200);
+    $scope.total = myCounter.getValue();
+  };
+
+  $scope.subtractCount = function(qtd) {
+    myCounter.subtract(qtd);
+    navigator.vibrate(200);
+    $scope.total = myCounter.getValue();
+  };
+
+  $scope.resetCount = function() {
+    myCounter.setValue(0);
+    $scope.total = myCounter.getValue();
+  };
 })
 
 // Shop controller.

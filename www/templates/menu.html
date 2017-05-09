@@ -64,6 +64,9 @@
         <ion-item menu-close href="#/app/shop">
           Roteiros
         </ion-item>
+        <ion-item menu-close href="#/app/counter">
+          Contador
+        </ion-item>
         <ion-item menu-close href="#/app/shop">
           Biblia
         </ion-item>
@@ -81,56 +84,19 @@
 
   </ion-side-menu>
   <ion-side-menu side="right">
-    <ion-header-bar class="bar-deepblue-reverse bar-deepblue-borderbottom">
+    <ion-header-bar class="bar-ondaDura-reverse bar-ondaDura-borderbottom bar bar-header disable-user-behavior">
     </ion-header-bar>
 
     <ion-content>
       <div class="list">
-        <a class="item item-avatar" href="#">
-          <img src="./img/maxresdefault.jpg">
-          <h2>Fulano</h2>
-          <p>Curtiu sua foto</p>
-        </a>
-        <a class="item item-avatar" href="#">
-          <img src="./img/Image681.jpg">
-          <h2>Ciclano</h2>
-          <p>Comentou sua foto</p>
-        </a>
-        <a class="item item-icon-left" href="#">
-          <i class="icon ion-email"></i>
-          <h2>Metanoia</h2>
-          <p>Você tem esse evento na semana</p>
-        </a>
-        <a class="item item-avatar" href="#">
-          <img src="./img/maxresdefault.jpg">
-          <h2>Fulano</h2>
-          <p>Curtiu sua foto</p>
-        </a>
-        <a class="item item-avatar" href="#">
-          <img src="./img/Image681.jpg">
-          <h2>Ciclano</h2>
-          <p>Comentou sua foto</p>
-        </a>
-        <a class="item item-icon-left" href="#">
-          <i class="icon ion-email"></i>
-          <h2>Metanoia</h2>
-          <p>Você tem esse evento na semana</p>
-        </a>
-        <a class="item item-avatar" href="#">
-          <img src="./img/maxresdefault.jpg">
-          <h2>Fulano</h2>
-          <p>Curtiu sua foto</p>
-        </a>
-        <a class="item item-avatar" href="#">
-          <img src="./img/Image681.jpg">
-          <h2>Ciclano</h2>
-          <p>Comentou sua foto</p>
-        </a>
-        <a class="item item-icon-left" href="#">
-          <i class="icon ion-email"></i>
-          <h2>Metanoia</h2>
-          <p>Você tem esse evento na semana</p>
-        </a>
+        <span ng-repeat="notification in notifications">
+          <a class="item " ng-class="{'item-icon-left': notification.type == 'icon', 'item-avatar': notification.type == 'img'}" href="{{notification.url}}">
+            <img src="{{notification.image}}" ng-if="notification.type == 'img'">
+            <i class="{{notification.icon}}" ng-if="notification.type == 'icon'"></i>
+            <h2>{{notification.name}}</h2>
+            <p>{{notification.description}}</p>
+          </a>
+        </span>
       </div>
     </ion-content>
 

@@ -97,6 +97,28 @@ angular.module('ondaDura', ['ionic', 'ondaDura.controllers', 'ondaDura.services'
     }
   })
 
+  .state('app.forgot-code', {
+    url: '/forgot-code',
+    cache : false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/forgot-code.html',
+        controller : 'LoginCtrl'
+      }
+    }
+  })
+
+  .state('app.reset-password', {
+    url: '/reset-password',
+    cache : false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/reset-password.html',
+        controller : 'LoginCtrl'
+      }
+    }
+  })
+
   .state('app.signup', {
     url: '/signup',
     views: {
@@ -125,6 +147,17 @@ angular.module('ondaDura', ['ionic', 'ondaDura.controllers', 'ondaDura.services'
       'menuContent': {
         templateUrl: 'templates/feed.html',
         controller : 'FeedsCtrl'
+      }
+    }
+  })
+
+  .state('app.counter', {
+    url: '/counter',
+    data : { auth : true },
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/counter.html',
+        controller : 'CounterCtrl'
       }
     }
   })

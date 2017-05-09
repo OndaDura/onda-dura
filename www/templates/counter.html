@@ -1,0 +1,17 @@
+<ion-view view-title="Contador" hide-back-button="true">
+  <ion-content scroll="false">
+    <div class="row">
+      <div class="col col-50"><button class="button button-assertive" ng-click="resetCount();"><i class="icon ion-refresh"></i></button></div>
+      <div class="col col-50"><button class="button button-light direita" ng-click="subtractCount(1)"><i class="icon ion-minus-round"></i></button></div>
+    </div>
+    <div class="clearfix">
+      <div class="counter-wrapper">
+        <ul class="flip-counter default" id="myCounter">{{total}}</ul>
+      </div>
+    </div>
+    <div class="height-79">
+      <button ng-click="addCount(1);" class="button button-large button-positive botao-contador">+</button>
+    </div>
+
+  </ion-content>
+</ion-view>

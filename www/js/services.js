@@ -73,12 +73,20 @@ angular.module('ondaDura.services', [])
     return $http.get('sampledata/feeds.json');
   }
 
+  svc.getNotifications = function(){
+    return $http.get('sampledata/notifications.json');
+  }
+
   svc.getProducts = function(){
     return $http.get('sampledata/products.json');
   }
 
   svc.getComments = function(){
     return $http.get('sampledata/comments.json');
+  }
+
+  svc.getLikes = function(id){
+    return $http.get('sampledata/likes.json');
   }
   return svc;
 }])

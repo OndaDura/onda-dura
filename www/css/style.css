@@ -7,12 +7,25 @@
   margin-top: 68px;
 }
 
+.direita {
+  float: right;
+}
+
+.esquerda {
+  float: left;
+}
+
 .vermelho {
   color: red !important;
 }
 
 .amarelo {
-color: #ffc900 !important;
+  color: #ffc900 !important;
+}
+
+.fundo-cinza {
+  background-color: #888888 !important;
+  border-color: #888888 !important;
 }
 
 .botao-criar-post {
@@ -37,4 +50,15 @@ color: #ffc900 !important;
 
 .invisivel {
   display: none !important;
+}
+
+.botao-contador {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  font-size: 200px;
+}
+
+.height-79 {
+  height: 79%;
 }

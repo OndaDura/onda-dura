@@ -1,0 +1,32 @@
+<!--
+  #TIP: in this case we hide the navbar provided by navigation system.
+-->
+<ion-view hide-nav-bar="true">
+  <ion-header-bar class="bar bar-ondaDura bar-ondaDura-borderbottom">
+  <h2 class="title">Recuperar senha</h2>
+  </ion-header-bar>
+
+  <ion-content class="has-header has-footer padding full-height text-center">
+    <div style="padding-top:50px;">
+      <h3 class="sans-pro-light">Favor inserir o código enviado para o seu e-mail</h3>
+      <form name="form_forgot_code">
+        <div class="erros" ng-if="(form_forgot_code.$error || !codeValid) && form_forgot_code.$submitted">
+          <h4 class="vermelho" ng-if="form_forgot_code.email.$error.code">O campo código está inválido</h4>
+          <h4 class="vermelho" ng-if="form_forgot_code.$error.required">Existem campos obrigatórios que não foram preenchidos</h4>
+          <h4 class="vermelho" ng-if="!codeValid">O código informado não é válido, verifique se você preencheu corretamente</h4>
+        </div>
+        <label class="item item-input">
+          <input type="number" placeholder="Código" ng-model="code" name="code" required >
+        </label>
+
+        <button class="button button-block button-energized" type="submit" ng-click="forgotCode(form_forgot_code);">Recuperar senha</button>
+      </form>
+      <button class="button button-block button-energized fundo-cinza" type="button" ng-click="resendCode();">Enviar o código novamente</button>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar class="bar bar-ondaDura bar-ondaDura-bordertop pointer" ui-sref="app.login">
+    <h1 class="title sans-pro-light">Voltar para o login</h1>
+  </ion-footer-bar>
+
+</ion-view>

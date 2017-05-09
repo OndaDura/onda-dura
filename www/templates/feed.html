@@ -52,7 +52,7 @@
       </div>
       <div class="item">
         <p>
-          <a href="#" class="subdued" ng-click="modalLikes.show()">{{feed.likes}} Curtidas</a>
+          <a href="#" class="subdued" ng-click="modalLikes.show(); viewLikes(feed.id);">{{feed.likes}} Curtidas</a>
           <a href="#" class="subdued" ng-click="comment(feed);">{{feed.comments}} Comentarios</a>
         </p>
       </div>
