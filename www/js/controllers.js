@@ -25,6 +25,8 @@ angular.module('ondaDura.controllers', [])
   // and auth stuff in a better way.
   $rootScope.user = {};
 
+  $scope.currentCtrl = $state.current.views.menuContent.controller;
+
   $scope.logout = function(){
     $rootScope.user = {};
     $state.go('index')
@@ -36,7 +38,6 @@ angular.module('ondaDura.controllers', [])
       $scope.notifications = newItems;
     });
   };
-
 
   $scope.getNotifications();
 
@@ -108,12 +109,16 @@ angular.module('ondaDura.controllers', [])
     form_login.$submitted = true;
     if (!Object.keys(form_login.$error).length) {
       $rootScope.user = {
-        email : "mary@ubiqtspaces.com",
-        name : "Mary Ubiquitous",
-        address : "Rue de Galvignac",
-        city : "RonnieLand",
-        zip  : "00007",
-        avatar : 'sampledata/images/avatar.jpg'
+        email : "contato@renan.pro.br",
+        name : "Renan Rafael Bertoldo",
+        address : "Tifa Martins",
+        implantation : "2",
+        birth  : "10/12/1995",
+        avatar : './img/gHd5vedGQJu4s4qsPQvr_kitten2.jpg',
+        watsapp : "(47) 99622-1971",
+        facebook : "Link do face",
+        twitter : "Link do twitter",
+        instagran : "Link do instagran"
       };
       //finally, we route our app to the 'app.shop' view
       $state.go('app.feed');
@@ -266,8 +271,7 @@ angular.module('ondaDura.controllers', [])
   $scope.doRefresh();
 })
 
-// Feeds controller.
-.controller('CounterCtrl', function($scope) {
+.controller('CounterCtrl', function($scope, $ionicPopup, $state) {
   var myCounter = new flipCounter('myCounter', {value: 0, inc: 1, auto: false});
 
   $scope.addCount = function(qtd) {
@@ -283,9 +287,27 @@ angular.module('ondaDura.controllers', [])
   };
 
   $scope.resetCount = function() {
-    myCounter.setValue(0);
-    $scope.total = myCounter.getValue();
+    var myPopup = $ionicPopup.show({
+      title: 'Reiniciar contador',
+      subTitle: 'Caso você tenha certeza que deseja reiniciar o contador clique em Sim',
+      scope: $scope,
+      buttons: [
+        { text: 'Não' },
+        {
+          text: '<b>Sim</b>',
+          type: 'button-positive',
+          onTap: function(e) {
+            myCounter.setValue(0);
+            $scope.total = myCounter.getValue();
+          }
+        },
+      ]
+    });
   };
+})
+
+.controller('RouteCtrl', function($scope, $ionicPopup, $state) {
+  console.log("teste");
 })
 
 // Shop controller.

@@ -151,6 +151,17 @@ angular.module('ondaDura', ['ionic', 'ondaDura.controllers', 'ondaDura.services'
     }
   })
 
+  .state('app.routes', {
+    url: '/routes',
+    data : { auth : true },
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/routes.html',
+        controller : 'RouteCtrl'
+      }
+    }
+  })
+
   .state('app.counter', {
     url: '/counter',
     data : { auth : true },

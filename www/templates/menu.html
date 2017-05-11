@@ -20,10 +20,15 @@
         <button class="white-color button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
       </ion-nav-buttons>
-      <ion-nav-buttons side="right" >
-        <button class="button button-clear icon ion-ios-world-outline white-color" menu-toggle="right">
-        </button>
-        <span ng-show="cart.products.length" class="cart-badge ng-hide">{{cart.products.length}}</span>
+      <ion-nav-buttons side="right">
+        <div ng-if="currentCtrl != 'CounterCtrl'">
+          <button class="button button-clear icon ion-ios-world-outline white-color" menu-toggle="right">
+          </button>
+          <span ng-show="cart.products.length" class="cart-badge ng-hide">{{cart.products.length}}</span>
+        </div>
+        <div ng-if="currentCtrl == 'CounterCtrl'">
+          <button class="button button-clear icon ion-gear-a white-color" menu-toggle="right"></button>
+        </div>
       </ion-nav-buttons>
     </ion-nav-bar>
 
@@ -61,7 +66,7 @@
         <ion-item menu-close href="#/app/shop">
           Conversas
         </ion-item>
-        <ion-item menu-close href="#/app/shop">
+        <ion-item menu-close href="#/app/routes">
           Roteiros
         </ion-item>
         <ion-item menu-close href="#/app/counter">
@@ -83,20 +88,26 @@
     </ion-footer-bar>
 
   </ion-side-menu>
+
   <ion-side-menu side="right">
     <ion-header-bar class="bar-ondaDura-reverse bar-ondaDura-borderbottom bar bar-header disable-user-behavior">
     </ion-header-bar>
 
     <ion-content>
       <div class="list">
-        <span ng-repeat="notification in notifications">
-          <a class="item " ng-class="{'item-icon-left': notification.type == 'icon', 'item-avatar': notification.type == 'img'}" href="{{notification.url}}">
-            <img src="{{notification.image}}" ng-if="notification.type == 'img'">
-            <i class="{{notification.icon}}" ng-if="notification.type == 'icon'"></i>
-            <h2>{{notification.name}}</h2>
-            <p>{{notification.description}}</p>
-          </a>
-        </span>
+        <div ng-if="currentCtrl != 'CounterCtrl'">
+          <span ng-repeat="notification in notifications">
+            <a class="item " ng-class="{'item-icon-left': notification.type == 'icon', 'item-avatar': notification.type == 'img'}" href="{{notification.url}}">
+              <img src="{{notification.image}}" ng-if="notification.type == 'img'">
+              <i class="{{notification.icon}}" ng-if="notification.type == 'icon'"></i>
+              <h2>{{notification.name}}</h2>
+              <p>{{notification.description}}</p>
+            </a>
+          </span>
+        </div>
+        <div ng-if="currentCtrl == 'CounterCtrl'">
+            <ion-toggle ng-model="airplaneMode" toggle-class="toggle-positive">Vibrar</ion-toggle>
+        </div>
       </div>
     </ion-content>
 
